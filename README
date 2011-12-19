@@ -1,0 +1,22 @@
+Any WEB application has to deal with situation when it has to replace the content of the page with content of the custom error page. It could happened when:
+- Part of the site is closed for maintenance or debugging;
+- Some entity is not available (flagged, in pending status and so on)
+- User has no access to some resource
+
+Zend Framework by default doesn't provide any functionality to handle unique for each site situation. Even so it gracefully handles common errors such as application errors or invalid urls.
+Approach and solution described here in my opinion allow to handle easily any unique case.
+
+Requirements:
+- Relatively easy trigger event with minimalistic code;
+- Ability to define custom page for each event;
+- Ability to pass to custom page meaningful messages;
+- Custom error pages must have access to the params of initial request 
+ 
+ Approach:
+ - Each event has dedicated Exception 
+ - To trigger event one must throw an exception
+ - Message defined in Exception is available for custom error page
+ - Error handler helper catches exceptions and forwards to specific action in Error Controller
+ - Functionality defined in Actions allows get extra data before rendering view
+ 
+  
