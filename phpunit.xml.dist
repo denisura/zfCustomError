@@ -26,6 +26,7 @@
       <directory suffix=".php">application</directory>
       <directory suffix=".php">library</directory>
       <exclude>
+        <directory suffix=".php">library/Zend</directory>
         <file>application/Bootstrap.php</file>
       </exclude>
     </whitelist>
