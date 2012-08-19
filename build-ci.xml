@@ -58,6 +58,7 @@
 
     <fileset dir="${basedir}/library">
      <include name="**/*.php" />
+     <exclude name="**/${basedir}/library/Zend/**" />
      <modified />
     </fileset>
 
