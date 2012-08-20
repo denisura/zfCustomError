@@ -1,5 +1,4 @@
 <?php
-
 /**
  *
  * @package zfCustomError
@@ -11,7 +10,7 @@
  * Error Controller
  * @package zfCustomError
  * @author Denis Uraganov
- *        
+ *
  */
 class ErrorController extends Zend_Controller_Action
 {
@@ -37,10 +36,9 @@ class ErrorController extends Zend_Controller_Action
             $log->crit($this->view->message, $this->_errors->exception);
         }
         // conditionally display exceptions
-        if ($this->getInvokeArg('displayExceptions') == true) {
+        if ($this->getInvokeArg('displayExceptions') == TRUE) {
             $this->view->exception = $this->_errors->exception;
         }
-        
         $this->view->request = $this->_errors->request;
     }
 
@@ -49,7 +47,6 @@ class ErrorController extends Zend_Controller_Action
      */
     public function errorAction ()
     {
-        
         switch ($this->_errors->type) {
             case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_ROUTE:
             case Zend_Controller_Plugin_ErrorHandler::EXCEPTION_NO_CONTROLLER:
@@ -103,6 +100,6 @@ class ErrorController extends Zend_Controller_Action
                  $bootstrap->hasPluginResource('Log')) {
                     return $bootstrap->getResource('Log');
                 }
-                return false;
+                return FALSE;
             }
         }
